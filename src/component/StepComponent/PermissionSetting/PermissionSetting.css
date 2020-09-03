@@ -1,0 +1,4 @@
+.checkBoxColumn > .ant-checkbox-group-item {
+    display: block!important;
+    padding: 8px 0;
+}

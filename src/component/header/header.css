@@ -1,0 +1,23 @@
+.header {
+    padding: 10px 20px;
+    border-bottom: solid 1px #cac9c9;
+    background-image: url(../../styles/image/background_header.jpg);
+    text-align: center;
+    background-attachment: fixed;
+}
+.trans,.titleName {
+    align-self: center;
+}
+h1 {
+    margin: 0px;
+}
+.titleName {
+    color: #ffffff;
+    font-size: 20px;
+}
+a.ant-typography:hover{
+    text-decoration: underline;
+}
+img {
+    height:35px;
+  }

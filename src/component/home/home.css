@@ -1,0 +1,14 @@
+.home {
+  padding: 36px;
+  min-height: 100%;
+  background-color: aliceblue;
+}
+.homeMobile {
+  padding: 12px;
+  min-height: 100%;
+  background-color: aliceblue;
+}
+.ant-card-meta-avatar > img {
+  height: 50px;
+  width: 50px;
+}

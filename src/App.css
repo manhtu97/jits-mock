@@ -1,0 +1,11 @@
+.App {
+  text-align: center;
+  height: 100%;
+  overflow: auto;
+}
+.ant-card-meta-title {
+  white-space: normal!important;
+}
+.ant-card {
+  height: 100%;
+}
