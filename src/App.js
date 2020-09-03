@@ -25,7 +25,6 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <BrowserRouter>
         <Switch>
           <Route exact path="/">
             <Redirect to="/home" />
@@ -52,7 +51,6 @@ function App() {
             <Redirect to="/404" />
           </Route>
         </Switch>
-      </BrowserRouter>
     </div>
   );
 }
