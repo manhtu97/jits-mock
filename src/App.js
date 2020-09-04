@@ -8,13 +8,13 @@ import AdminSetting from "@src/component/StepComponent/AdminSetting/AdminSetting
 import CameraSetting from "@src/component/StepComponent/CameraSetting/CameraSetting";
 import PermissionSetting from "@src/component/StepComponent/PermissionSetting/PermissionSetting";
 import ScreenConfigSetting from "@src/component/StepComponent/ScreenConfigSetting/ScreenConfigSetting";
-import ReportHistory from "@src/component/StepComponent/ReportHistory/ReportHistory";
-import ReportSetting from "@src/component/StepComponent/ReportSetting/ReportSetting";
+// import ReportHistory from "@src/component/StepComponent/ReportHistory/ReportHistory";
+// import ReportSetting from "@src/component/StepComponent/ReportSetting/ReportSetting";
 import User from "@src/component/StepComponent/User/User";
 
 import DetailOffice from "@src/component/StepComponent/Office/DetailOffice/DetailOffice";
 import Dashboard from '@src/component/StepComponent/Office/DetailOffice/Dashboard';
-import { Switch, Route, Redirect, BrowserRouter } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import DetectError from "./component/StepComponent/Office/DetailOffice/DetectError";
 import Abnormal from "./component/StepComponent/Office/DetailOffice/Abnormal";
 import WarningHistory from "./component/StepComponent/Office/DetailOffice/WarningSysHistory";

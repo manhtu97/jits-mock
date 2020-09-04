@@ -17,7 +17,7 @@ import moment from "moment";
 import Highcharts from "highcharts";
 import Chart from "@src/component/Util/HighChart";
 import { ReloadOutlined } from "@ant-design/icons";
-import { isBrowser, BrowserView, MobileView } from "react-device-detect";
+import { isBrowser } from "react-device-detect";
 const { Text } = Typography;
 class Dashboard extends Component {
   constructor(props) {
