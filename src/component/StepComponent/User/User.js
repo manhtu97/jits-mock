@@ -220,7 +220,7 @@ class User extends Component {
             </Breadcrumb.Item>
           </Breadcrumb>
         </Row>
-        <Card style={{ width: "100%" }}>
+        <Card style={{ width: "100%" }}>s
           <Row align="middle" justify="center" gutter={[32, 16]}>
             <Col lg={{ span: 7 }} xs={{ span: 24 }}>
               <Row align="middle" justify="center" gutter={[6, 6]}>
