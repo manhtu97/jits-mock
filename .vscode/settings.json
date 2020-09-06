@@ -3,6 +3,6 @@
         "node_modules{,/**}",
         ".vscode{,/**}"
     ],
-    "appService.defaultWebAppToDeploy": "/subscriptions/4a6506ac-8256-4948-a83b-fa513a41ee4a/resourceGroups/Sensor_AI/providers/Microsoft.Web/sites/jits",
-    "appService.deploySubpath": "."
+    "appService.deploySubpath": ".",
+    "appService.defaultWebAppToDeploy": "None"
 }
