@@ -1,69 +1,235 @@
 import React, { Component } from "react";
 import "./Office.css";
-import { Row, Col, Card, Breadcrumb, Typography } from "antd";
-import DetailOffice from "@src/component/StepComponent/Office/DetailOffice/DetailOffice";
-import { Switch, Link, Route, BrowserRouter } from "react-router-dom";
+import { Row, Col, Card, Table, Button, Select, Input, Checkbox } from "antd";
 import { isBrowser } from "react-device-detect";
-const { Text } = Typography;
-const { Meta } = Card;
+import Modal from "antd/lib/modal/Modal";
 class Office extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      dataSource: [
+        {
+          key: 0,
+          no: 1,
+          officeName: "田布施",
+          numberOfTreatment: 2,
+          numberOfCamera: 4,
+          numberOfSensor: 5,
+          button: "",
+        },
+        {
+          key: 1,
+          no: 2,
+          officeName: "東埼玉",
+          numberOfTreatment: 1,
+          numberOfCamera: 2,
+          numberOfSensor: 8,
+          button: "",
+        },
+        {
+          key: 2,
+          no: 3,
+          officeName: "...",
+          numberOfTreatment: 2,
+          numberOfCamera: 4,
+          numberOfSensor: 10,
+          button: "",
+        },
+      ],
+      columns: [
+        {
+          title: "No",
+          dataIndex: "no",
+          width: "10%",
+        },
+        {
+          title: "事業所名",
+          dataIndex: "officeName",
+        },
+        {
+          title: "処理場数",
+          dataIndex: "numberOfTreatment",
+        },
+        {
+          title: "カメラ数",
+          dataIndex: "numberOfCamera",
+        },
+        {
+          title: "センサー数",
+          dataIndex: "numberOfSensor",
+        },
+        {
+          title: () => (
+            <Button type="primary" onClick={() => this.showModal("事業所追加")}>
+              事業所追加
+            </Button>
+          ),
+          dataIndex: "button",
+          render: () => (
+            <Row gutter={[6, 6]} align="middle">
+              <Col span={10}>
+                <Button
+                  style={{ width: "100%" }}
+                  onClick={() => this.showModal("事業所修正")}
+                >
+                  事業所修正
+                </Button>
+              </Col>
+              <Col span={7}>
+                <Button style={{ width: "100%" }}>処理場</Button>
+              </Col>
+              <Col span={7}>
+                <Button
+                  style={{ width: "100%" }}
+                  onClick={() => this.showModal1()}
+                >
+                  センサー
+                </Button>
+              </Col>
+            </Row>
+          ),
+        },
+      ],
+      visible: false,
+      visible1: false,
+      textHeader: "",
+    };
   }
+  showModal = (value) => {
+    this.setState({
+      visible: true,
+      textHeader: value,
+    });
+  };
+  showModal1 = () => {
+    this.setState({
+      visible1: true,
+    });
+  };
+
+  handleOk = (e) => {
+    this.setState({
+      visible: false,
+      visible1: false,
+    });
+  };
+  clickEdit = (id) => {
+    console.log(id);
+  };
+  addOffice = () => {};
   render() {
-    const arrayDetailOffice = [
-      {
-        name: "田布施",
-        id: 1,
-      },
-      {
-        name: "東埼玉",
-        id: 2,
-      },
-      {
-        name: "東京",
-        id: 3,
-      },
-      {
-        name: "大阪",
-        id: 4,
-      },
-    ];
+    let { dataSource, columns, textHeader } = this.state;
     return (
       <div className={isBrowser ? "home" : "homeMobile"}>
+        <Modal
+          title={textHeader}
+          visible={this.state.visible}
+          onOk={this.handleOk}
+          onCancel={this.handleOk}
+          okText="保存"
+          cancelText="クリア"
+        >
+          <Row align="middle">
+            <Col span={6}>
+              事業所 <span style={{ color: "red" }}>*</span>
+            </Col>
+            <Col span={18}>
+              <Select style={{ width: "100%" }} />
+            </Col>
+          </Row>
+        </Modal>
+        <Modal
+          title="センサー"
+          visible={this.state.visible1}
+          onOk={this.handleOk}
+          onCancel={this.handleOk}
+          okText="追加"
+          cancelText="リセット"
+        >
+          <Row align="middle" justify="center" gutter={[6, 6]}>
+            <Col span={12}>
+              <Input placeholder="センサー名"></Input>
+            </Col>
+            <Col span={12}>
+              <Input placeholder="リアルタイムに表示されるセンサー"></Input>
+            </Col>
+            <Col span={12}>
+              <Select defaultValue="AA" style={{ width: "100%" }} />
+            </Col>
+            <Col span={12}>
+              <Checkbox defaultChecked="true" />
+            </Col>
+            <Col span={12}>
+              <Input defaultValue="BB" style={{ width: "100%" }} />
+            </Col>
+            <Col span={12}>
+              <Checkbox />
+            </Col>
+          </Row>
+        </Modal>
         <Row>
-          <h2 style={{ margin: 0 }}>事業所一覧</h2>
+          <h2>事業所一覧</h2>
         </Row>
-        <Row gutter={[8, 8]} style={{ padding: "16px 0" }}>
-          <Breadcrumb style={{ paddingLeft: "6px", color: "#0000FF" }}>
-            <Breadcrumb.Item>
-              <Link to="/home">ホームページ</Link>
-            </Breadcrumb.Item>
-            <Breadcrumb.Item>
-              <Text strong>事業所</Text>
-            </Breadcrumb.Item>
-          </Breadcrumb>
-        </Row>
-        <Row gutter={[8, 8]}>
+        {/* <Row gutter={[8, 8]} style={{ padding: "16px 0" }}>
+          <Col flex="auto">
+            <Row justify="start" align="middle">
+              <Breadcrumb style={{ color: "#0000FF" }}>
+                <Breadcrumb.Item>
+                  <Link to="/home">ホームページ</Link>
+                </Breadcrumb.Item>
+                <Breadcrumb.Item>
+                  <Text strong>事業所</Text>
+                </Breadcrumb.Item>
+              </Breadcrumb>
+            </Row>
+          </Col>
+        </Row> */}
+        {/* <Row gutter={[32, 32]}>
           {arrayDetailOffice.map((obj) => (
-            <Col xs={{ span: 12 }} lg={{ span: 6 }} key={obj.id}>
-              <Link to={{ pathname: "/office/" + obj.id }}>
-                <Card hoverable>
+            <Col
+              xs={{ span: 12 }}
+              md={{ span: 6 }}
+              lg={{ span: 4 }}
+              key={obj.id}
+            >
+              <Card
+                hoverable
+                actions={[
+                  <Tooltip title="設定" placement="bottom">
+                    <Link to={"/office/" + obj.id + "/office-detail-setting"}>
+                      <SettingOutlined key="setting" />
+                    </Link>
+                  </Tooltip>,
+                  <Tooltip title="編修" placement="bottom">
+                    <EditOutlined
+                      key="edit"
+                      onClick={() => this.clickEdit(obj.id)}
+                    />
+                  </Tooltip>,
+                ]}
+              >
+                <Link to={{ pathname: "/office/" + obj.id }}>
                   <Meta
                     title={obj.name}
                     description="This is the description"
                   />
-                </Card>
-              </Link>
+                </Link>
+              </Card>
             </Col>
           ))}
-        </Row>
-        <BrowserRouter>
-          <Switch>
-            <Route exact path="/office/1" children={<DetailOffice />} />
-          </Switch>
-        </BrowserRouter>
+        </Row> */}
+        <Card style={{ width: "100%", marginTop: "24px" }}>
+          <Row align="middle" justify="center">
+            <Table
+              style={{ width: "100%" }}
+              bordered
+              title={() => "事業所一覧"}
+              dataSource={dataSource}
+              columns={columns}
+              scroll={{ x: "max-content" }}
+            ></Table>
+          </Row>
+        </Card>
       </div>
     );
   }

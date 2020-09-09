@@ -11,7 +11,7 @@ import IconUser from "@src/styles/icon/icons-user.png";
 import IconSetting from "@src/styles/icon/icons-settings.png";
 import IconSysAdmin from "@src/styles/icon/icons-system-administrator.png";
 import { Link } from "react-router-dom";
-import { BrowserView, MobileView,isBrowser } from "react-device-detect";
+import { BrowserView, MobileView, isBrowser } from "react-device-detect";
 const { Meta } = Card;
 class Home extends Component {
   constructor(props) {
@@ -37,7 +37,7 @@ class Home extends Component {
                 </Card>
               </Link>
             </Col>
-            <Col xs={{ span: 12 }} lg={{ span: 6 }}>
+            {/* <Col xs={{ span: 12 }} lg={{ span: 6 }}>
               <Link to="/office/1/warning-history">
                 <Card hoverable>
                   <Meta
@@ -47,26 +47,26 @@ class Home extends Component {
                   />
                 </Card>
               </Link>
-            </Col>
+            </Col> */}
           </Row>
           <Row gutter={[8, 8]}>
-            <Col xs={{ span: 12 }} lg={{ span: 6 }}>
-              <Link to="/permission">
-                <Card hoverable>
-                  <Meta
-                    avatar={<img src={IconSetting} alt="権限設定" />}
-                    title="権限設定"
-                    description="This is the description"
-                  />
-                </Card>
-              </Link>
-            </Col>
             <Col xs={{ span: 12 }} lg={{ span: 6 }}>
               <Link to="/user">
                 <Card hoverable>
                   <Meta
                     avatar={<img src={IconUser} alt="ユーザー" />}
                     title="ユーザー"
+                    description="This is the description"
+                  />
+                </Card>
+              </Link>
+            </Col>
+            <Col xs={{ span: 12 }} lg={{ span: 6 }}>
+              <Link to="/permission">
+                <Card hoverable>
+                  <Meta
+                    avatar={<img src={IconSetting} alt="権限設定" />}
+                    title="権限設定"
                     description="This is the description"
                   />
                 </Card>
@@ -83,7 +83,7 @@ class Home extends Component {
                 </Card>
               </Link>
             </Col>
-            <Col xs={{ span: 12 }} lg={{ span: 6 }}>
+            {/* <Col xs={{ span: 12 }} lg={{ span: 6 }}>
               <Link to="/office-setting">
                 <Card hoverable>
                   <Meta
@@ -93,7 +93,7 @@ class Home extends Component {
                   />
                 </Card>
               </Link>
-            </Col>
+            </Col> */}
           </Row>
           <Row gutter={[8, 8]}>
             <Col className="gutter-row" xs={{ span: 12 }} lg={{ span: 6 }}>
@@ -183,7 +183,7 @@ class Home extends Component {
                 </Card>
               </Link>
             </Col>
-            <Col xs={{ span: 12 }} lg={{ span: 6 }}>
+            {/* <Col xs={{ span: 12 }} lg={{ span: 6 }}>
               <Link to="/office-setting">
                 <Card hoverable>
                   <Meta
@@ -192,7 +192,7 @@ class Home extends Component {
                   />
                 </Card>
               </Link>
-            </Col>
+            </Col> */}
           </Row>
           <Row gutter={[8, 8]}>
             <Col className="gutter-row" xs={{ span: 12 }} lg={{ span: 6 }}>

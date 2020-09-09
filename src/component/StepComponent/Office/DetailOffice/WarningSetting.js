@@ -1,22 +1,8 @@
 import React, { Component } from "react";
 import "./DetailOffice.css";
-import {
-  Row,
-  Col,
-  Card,
-  Breadcrumb,
-  Typography,
-  Button,
-  Select,
-  Table,
-  Tag,
-  Modal,
-  Input,
-} from "antd";
-import { Link } from "react-router-dom";
+import { Row, Col, Card, Button, Select, Table, Tag, Modal, Input } from "antd";
 import { isBrowser } from "react-device-detect";
-const { Text } = Typography;
-
+const { Option } = Select;
 class WarningSetting extends Component {
   constructor(props) {
     super(props);
@@ -196,10 +182,23 @@ class WarningSetting extends Component {
             <Col span={4}>mm</Col>
           </Row>
         </Modal>
-        <Row>
-          <h2 style={{ margin: 0 }}>警報設定</h2>
+        <Row style={{ paddingBottom: "24px" }}>
+          <Col flex="auto">
+            <Row justify="start">
+              <h2 style={{ margin: 0 }}>警報設定</h2>
+            </Row>
+          </Col>
+          <Col flex="200px">
+            <Row justify="end">
+              <Select defaultValue="田布施" style={{ width: 120 }}>
+                <Option value="田布施">田布施</Option>
+                <Option value="東埼玉">東埼玉</Option>
+                <Option value="東京">東京</Option>
+              </Select>
+            </Row>
+          </Col>
         </Row>
-        <Row gutter={[8, 8]} style={{ padding: "16px 0" }}>
+        {/* <Row gutter={[8, 8]} style={{ padding: "16px 0" }}>
           <Breadcrumb style={{ paddingLeft: "6px", color: "#0000FF" }}>
             <Breadcrumb.Item>
               <Link to="/home">ホームページ</Link>
@@ -214,7 +213,7 @@ class WarningSetting extends Component {
               <Text strong>警報設定</Text>
             </Breadcrumb.Item>
           </Breadcrumb>
-        </Row>
+        </Row> */}
         <Card style={{ width: "100%" }}>
           <Row style={{ padding: "16px" }} align="middle">
             <Col span={2} lg={{ span: 2 }} xs={{ span: 4 }}>

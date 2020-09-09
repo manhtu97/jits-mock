@@ -1,59 +1,168 @@
 import React from "react";
 import "./App.css";
-import Header from "@src/component/header/header";
-import Home from "@src/component/home/home";
-import Office from "@src/component/StepComponent/Office/Office";
-import OfficeSetting from "@src/component/StepComponent/OfficeSetting/OfficeSetting";
-import AdminSetting from "@src/component/StepComponent/AdminSetting/AdminSetting";
-import CameraSetting from "@src/component/StepComponent/CameraSetting/CameraSetting";
-import PermissionSetting from "@src/component/StepComponent/PermissionSetting/PermissionSetting";
-import ScreenConfigSetting from "@src/component/StepComponent/ScreenConfigSetting/ScreenConfigSetting";
-// import ReportHistory from "@src/component/StepComponent/ReportHistory/ReportHistory";
-// import ReportSetting from "@src/component/StepComponent/ReportSetting/ReportSetting";
-import User from "@src/component/StepComponent/User/User";
+import { Link } from "react-router-dom";
+import { Layout, Menu, Row, Col, Button, Popover } from "antd";
+import {
+  UserOutlined,
+  HomeOutlined,
+  ShopOutlined,
+  MenuUnfoldOutlined,
+  SettingOutlined,
+  AppstoreOutlined,
+  CameraOutlined,
+  ClusterOutlined,
+  MenuFoldOutlined,
+  MoreOutlined,
+  LoginOutlined,
+  InfoCircleOutlined,
+  FundOutlined,
+  WarningOutlined,
+  IssuesCloseOutlined,
+  ClockCircleOutlined,
+  AuditOutlined,
+  QuestionCircleOutlined,
+  HistoryOutlined
+} from "@ant-design/icons";
+import RouterRoot from "./component/routers/Router";
+const { SubMenu } = Menu;
+const { Content, Sider, Header } = Layout;
 
-import DetailOffice from "@src/component/StepComponent/Office/DetailOffice/DetailOffice";
-import Dashboard from '@src/component/StepComponent/Office/DetailOffice/Dashboard';
-import { Switch, Route, Redirect } from "react-router-dom";
-import DetectError from "./component/StepComponent/Office/DetailOffice/DetectError";
-import Abnormal from "./component/StepComponent/Office/DetailOffice/Abnormal";
-import WarningHistory from "./component/StepComponent/Office/DetailOffice/WarningSysHistory";
-import ReportHistoryOffice from "./component/StepComponent/Office/DetailOffice/ReportHistory";
-import EditPermission from "./component/StepComponent/PermissionSetting/EditPermisstion";
-import WarningSetting from "./component/StepComponent/Office/DetailOffice/WarningSetting";
-function App() {
-  return (
-    <div className="App">
-      <Header />
-        <Switch>
-          <Route exact path="/">
-            <Redirect to="/home" />
-          </Route>
-          <Route exact path="/home" component={Home} />
-          <Route exact path="/office" component={Office} />
-          <Route exact path="/office/:id" children={<DetailOffice />} />
-          <Route exact path="/office/:id/dashboard" children={<Dashboard />} />
-          <Route exact path="/office/:id/detect-error" children={<DetectError />} />
-          <Route exact path="/office/:id/abnormal" children={<Abnormal />}  />
-          <Route exact path="/office/:id/warning-history" children={<WarningHistory />} />
-          <Route exact path="/office/:id/report-history" children={<ReportHistoryOffice />} />
-          <Route exact path="/office/:id/warning-setting" children={<WarningSetting />} />
-          <Route exact path="/office-setting" component={OfficeSetting} />
-          <Route exact path="/admin-setting" component={AdminSetting} />
-          <Route exact path="/camera-setting" component={CameraSetting} />
-          <Route exact path="/permission" component={PermissionSetting} />
-          <Route exact path="/permission/edit" component={EditPermission} />
-          <Route exact path="/screen-config-setting" component={ScreenConfigSetting} />
-          {/* <Route exact path="/report-history" component={ReportHistory} />
-          <Route exact path="/report-setting" component={ReportSetting} /> */}
-          <Route exact path="/user" component={User} />
-          <Route path="*">
-            <Redirect to="/404" />
-          </Route>
-        </Switch>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    collapsed: false,
+    arrayKey: ['detailOffice'],
+    arraySelectedKeys: ["dashboard"],
+    visibleUser: false,
+  };
+  toggle = () => {
+    this.setState({ collapsed: !this.state.collapsed });
+  };
+
+  render() {
+    let { collapsed, arrayKey, arraySelectedKeys } = this.state;
+    const content = (
+      <div>
+        <div className="buttonClick">プロフィール情報  <InfoCircleOutlined /></div>
+        <div className="buttonClick">ログアウト  <LoginOutlined /></div>
+      </div>
+    );
+
+    return (
+      <div className="App">
+        <Layout style={{ height: "100%" }}>
+          <Sider
+            collapsible
+            collapsed={collapsed}
+            onCollapse={this.toggle}
+            width={260}
+            className="site-layout-background"
+          >
+            <div className="logo" />
+            <Menu
+              theme="dark"
+              mode="inline"
+              style={{ borderRight: 0 }}
+              // defaultSelectedKeys="dashboard"
+              // defaultOpenKeys="detailOffice"
+              // openKeys={arrayKey}
+              // selectedKeys={arraySelectedKeys}
+            >
+              <SubMenu
+                key="detailOffice"
+                icon={<HomeOutlined />}
+                title="事業所"
+              >
+                <Menu.Item key="dashboard" icon={<FundOutlined />}>
+                  <Link to="/detail-office/dashboard/1">ダッシュボード</Link>
+                </Menu.Item>
+                <Menu.Item key="detectError" icon={<QuestionCircleOutlined />}>
+                  <Link to="/detail-office/detect-error/1">精度誤差検知</Link>
+                </Menu.Item>
+                <Menu.Item key="abnormal" icon={<IssuesCloseOutlined />}>
+                  <Link to="/detail-office/abnormal/1">
+                    入力値が正常か異常か判別
+                  </Link>
+                </Menu.Item>
+                <Menu.Item key="systemWarningHistory" icon={<ClockCircleOutlined />}>
+                  <Link to="/detail-office/system-warning-history/1">
+                    システム警報履歴
+                  </Link>
+                </Menu.Item>
+                <Menu.Item key="reportHistory" icon={<HistoryOutlined />}>
+                  <Link to="/detail-office/warning-history/1">警報履歴</Link>
+                </Menu.Item>
+                <Menu.Item key="warningSetting" icon={<WarningOutlined />}>
+                  <Link to="/detail-office/warning-setting/1">警報設定</Link>
+                </Menu.Item>
+                <Menu.Item key="officeDetail" icon={<AuditOutlined />}>
+                  <Link to="/detail-office/office-detail-setting/1">
+                    事業所設定
+                  </Link>
+                </Menu.Item>
+              </SubMenu>
+              <Menu.Item key="office" icon={<ShopOutlined />}>
+                <Link to="/office">事業所管理</Link>
+              </Menu.Item>
+              <Menu.Item key="user" icon={<UserOutlined />}>
+                <Link to="/user">ユーザー管理</Link>
+              </Menu.Item>
+              <Menu.Item key="permission" icon={<ClusterOutlined />}>
+                <Link to="/permission">権限設定</Link>
+              </Menu.Item>
+              <SubMenu key="setting" icon={<SettingOutlined />} title="設定">
+                <Menu.Item key="adminSetting" icon={<UserOutlined />}>
+                  <Link to="/admin-setting">システム設定</Link>
+                </Menu.Item>
+                <Menu.Item
+                  key="screenConfigSetting"
+                  icon={<AppstoreOutlined />}
+                >
+                  <Link to="/screen-config-setting">画面構成設定</Link>
+                </Menu.Item>
+                <Menu.Item key="cameraSetting" icon={<CameraOutlined />}>
+                  <Link to="/camera-setting">カメラ設定</Link>
+                </Menu.Item>
+              </SubMenu>
+            </Menu>
+          </Sider>
+          <Layout className="site-layout">
+            <Header className="site-layout-background">
+              <Row>
+                <Col flex="auto">
+                  <Row justify="start" style={{ height: "100%" }}>
+                    <Col>
+                      {React.createElement(
+                        this.state.collapsed
+                          ? MenuUnfoldOutlined
+                          : MenuFoldOutlined,
+                        {
+                          className: "trigger",
+                          onClick: this.toggle,
+                        }
+                      )}
+                    </Col>
+                  </Row>
+                </Col>
+                <Col flex="160px" className="nameUser">
+                  システム管理者
+                  <Popover content={content} trigger="click">
+                    <Button
+                      type="text"
+                      icon={<MoreOutlined />}
+                      shape="circle"
+                    ></Button>
+                  </Popover>
+                </Col>
+              </Row>
+            </Header>
+            <Content>
+              <RouterRoot></RouterRoot>
+            </Content>
+          </Layout>
+        </Layout>
+      </div>
+    );
+  }
 }
-
 
 export default App;

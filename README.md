@@ -1,4 +1,10 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Setup
+
+Step 1: Download Nodejs and setup:  https://nodejs.org/
+Step 2: Add folder source code into VScode
+Step 3: Press Ctrl + ~ to open console command.
+Step 4: Run "npm install" to install node modules
+Step 5: Run "npm start" to show website in the development mode.
 
 ## Available Scripts
 
@@ -8,9 +14,6 @@ In the project directory, you can run:
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
 ### `npm test`
 

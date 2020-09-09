@@ -4,7 +4,6 @@ import {
   Row,
   Col,
   Card,
-  Breadcrumb,
   Typography,
   Button,
   DatePicker,
@@ -12,13 +11,13 @@ import {
   Modal,
   Input,
 } from "antd";
-import { Link } from "react-router-dom";
 import moment from "moment";
 import Highcharts from "highcharts";
 import Chart from "@src/component/Util/HighChart";
 import { ReloadOutlined } from "@ant-design/icons";
 import { isBrowser } from "react-device-detect";
 const { Text } = Typography;
+const { Option } = Select;
 class Dashboard extends Component {
   constructor(props) {
     super(props);
@@ -110,6 +109,9 @@ class Dashboard extends Component {
       visible: false,
     };
   }
+  componentDidMount() {
+    console.log(this.props);
+  }
   showModal = () => {
     this.setState({
       visible: true,
@@ -166,10 +168,23 @@ class Dashboard extends Component {
             </Col>
           </Row>
         </Modal>
-        <Row>
-          <h2 style={{ margin: 0 }}>田布施</h2>
+        <Row style={{ paddingBottom: "24px" }}>
+          <Col flex="auto">
+            <Row justify="start">
+              <h2 style={{ margin: 0 }}>ダッシュボード</h2>
+            </Row>
+          </Col>
+          <Col flex="200px">
+            <Row justify="end">
+              <Select defaultValue="田布施" style={{ width: 120 }}>
+                <Option value="田布施">田布施</Option>
+                <Option value="東埼玉">東埼玉</Option>
+                <Option value="東京">東京</Option>
+              </Select>
+            </Row>
+          </Col>
         </Row>
-        <Row gutter={[8, 8]} style={{ padding: "16px 0" }}>
+        {/* <Row gutter={[8, 8]} style={{ padding: "16px 0" }}>
           <Breadcrumb style={{ paddingLeft: "6px", color: "#0000FF" }}>
             <Breadcrumb.Item>
               <Link to="/home">ホームページ</Link>
@@ -178,17 +193,19 @@ class Dashboard extends Component {
               <Link to="/office">事業所</Link>
             </Breadcrumb.Item>
             <Breadcrumb.Item>
-              <Link to="/office/1">田布施</Link>
-            </Breadcrumb.Item>
-            <Breadcrumb.Item>
               <Text strong>ダッシュボード</Text>
             </Breadcrumb.Item>
           </Breadcrumb>
-        </Row>
-        <Card style={{ width: "100%", margin: "16px 0" }}>
-          <Row align="middle" justify="center" gutter={[16, 16]}>
-            <Col lg={{ span: 6 }} xs={{ span: 24 }}>
-              <Row align="middle" justify="center">
+        </Row> */}
+        <Card style={{ width: "100%", margin: "8px 0" }}>
+          <Row
+            align="middle"
+            justify="center"
+            gutter={[8, 8]}
+            style={{ margin: 0 }}
+          >
+            <Col lg={{ span: 7 }} xs={{ span: 24 }}>
+              <Row align="middle" justify="center" gutter={[8, 8]}>
                 <Col span={6}>開始時間</Col>
                 <Col span={18}>
                   <DatePicker
@@ -202,8 +219,8 @@ class Dashboard extends Component {
                 </Col>
               </Row>
             </Col>
-            <Col lg={{ span: 6 }} xs={{ span: 24 }}>
-              <Row align="middle" justify="center">
+            <Col lg={{ span: 7 }} xs={{ span: 24 }}>
+              <Row align="middle" justify="center" gutter={[8, 8]}>
                 <Col span={6}>終了時間</Col>
                 <Col span={18}>
                   <DatePicker
@@ -218,7 +235,7 @@ class Dashboard extends Component {
               </Row>
             </Col>
             <Col lg={{ span: 6 }} xs={{ span: 24 }}>
-              <Row align="middle" justify="center">
+              <Row align="middle" justify="center" gutter={[8, 8]}>
                 <Col span={6}>処理場</Col>
                 <Col span={18}>
                   <Select style={{ width: "100%" }} defaultValue="A"></Select>
@@ -226,13 +243,16 @@ class Dashboard extends Component {
               </Row>
             </Col>
             <Col lg={{ span: 4 }} xs={{ span: 24 }}>
-              <Row justify="end">
+              <Row justify="end" gutter={[8, 8]}>
                 <Button type="primary">フィルタ</Button>
               </Row>
             </Col>
           </Row>
         </Card>
-        <Card style={{ width: "100%", margin: "16px 0" }} bodyStyle={{ padding: '6px' }}>
+        <Card
+          style={{ width: "100%", margin: "16px 0" }}
+          bodyStyle={{ padding: "6px" }}
+        >
           <Card
             title="処理場A"
             bodyStyle={{ padding: 0 }}
@@ -255,7 +275,7 @@ class Dashboard extends Component {
               </Col>
               <Col span={14} lg={{ span: 14 }} xs={{ span: 24 }}>
                 <Row
-                  style={{ textAlign: "start", paddingLeft: "12px" }}
+                  style={{ textAlign: "start", paddingLeft: "12px", margin: 0 }}
                   align="middle"
                   gutter={[12, 12]}
                 >

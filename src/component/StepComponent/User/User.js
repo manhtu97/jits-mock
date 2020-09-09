@@ -4,8 +4,6 @@ import {
   Row,
   Col,
   Card,
-  Breadcrumb,
-  Typography,
   Button,
   Input,
   Select,
@@ -13,10 +11,8 @@ import {
   Modal,
   Tag,
 } from "antd";
-import { Link } from "react-router-dom";
 import { TweenOneGroup } from "rc-tween-one";
 import { isBrowser } from "react-device-detect";
-const { Text } = Typography;
 
 class User extends Component {
   constructor(props) {
@@ -207,10 +203,10 @@ class User extends Component {
             </Col>
           </Row>
         </Modal>
-        <Row>
+        <Row style={{paddingBottom: '24px'}}>
           <h2 style={{ margin: 0 }}>ユーザー</h2>
         </Row>
-        <Row gutter={[8, 8]} style={{ padding: "16px 0" }}>
+        {/* <Row gutter={[8, 8]} style={{ padding: "16px 0" }}>
           <Breadcrumb style={{ paddingLeft: "6px", color: "#0000FF" }}>
             <Breadcrumb.Item>
               <Link to="/home">ホームページ</Link>
@@ -219,9 +215,9 @@ class User extends Component {
               <Text strong>ユーザー</Text>
             </Breadcrumb.Item>
           </Breadcrumb>
-        </Row>
-        <Card style={{ width: "100%" }}>s
-          <Row align="middle" justify="center" gutter={[32, 16]}>
+        </Row> */}
+        <Card style={{ width: "100%" }}>
+          <Row align="middle" justify="center" gutter={[32, 16]} style={{margin: 0}}>
             <Col lg={{ span: 7 }} xs={{ span: 24 }}>
               <Row align="middle" justify="center" gutter={[6, 6]}>
                 <Col span={6}>ユーザー名</Col>

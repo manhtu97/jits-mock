@@ -10,8 +10,6 @@ import {
   Row,
   Col,
   Card,
-  Breadcrumb,
-  Typography,
   DatePicker,
   Button,
   Input,
@@ -19,11 +17,9 @@ import {
   Form,
   Table,
 } from "antd";
-import { Link } from "react-router-dom";
 import moment from "moment";
 import { isBrowser } from "react-device-detect";
-const { Text } = Typography;
-
+const { Option } = Select;
 const EditableContext = React.createContext();
 
 const EditableRow = ({ index, ...props }) => {
@@ -192,10 +188,23 @@ class Abnormal extends Component {
     });
     return (
       <div className={isBrowser ? "home" : "homeMobile"}>
-        <Row>
-          <h2 style={{ margin: 0 }}>入力値が正常か異常か判別</h2>
+        <Row style={{ paddingBottom: "24px" }}>
+          <Col flex="auto">
+            <Row justify="start">
+              <h2 style={{ margin: 0 }}>入力値が正常か異常か判別</h2>
+            </Row>
+          </Col>
+          <Col flex="200px">
+            <Row justify="end">
+              <Select defaultValue="田布施" style={{ width: 120 }}>
+                <Option value="田布施">田布施</Option>
+                <Option value="東埼玉">東埼玉</Option>
+                <Option value="東京">東京</Option>
+              </Select>
+            </Row>
+          </Col>
         </Row>
-        <Row gutter={[8, 8]} style={{ padding: "16px 0" }}>
+        {/* <Row gutter={[8, 8]} style={{ padding: "16px 0" }}>
           <Breadcrumb style={{ paddingLeft: "6px", color: "#0000FF" }}>
             <Breadcrumb.Item>
               <Link to="/home">ホームページ</Link>
@@ -210,7 +219,7 @@ class Abnormal extends Component {
               <Text strong>入力値が正常か異常か判別</Text>
             </Breadcrumb.Item>
           </Breadcrumb>
-        </Row>
+        </Row> */}
         <Card style={{ width: "100%" }}>
           <Row align="middle" justify="center" gutter={[32, 16]}>
             <Col lg={{ span: 7 }} xs={{ span: 24 }}>

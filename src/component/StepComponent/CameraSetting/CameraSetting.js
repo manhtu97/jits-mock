@@ -3,15 +3,11 @@ import {
   Row,
   Col,
   Card,
-  Breadcrumb,
-  Typography,
   Button,
   Input,
   Modal,
 } from "antd";
-import { Link } from "react-router-dom";
 import { isBrowser } from "react-device-detect";
-const { Text } = Typography;
 
 class CameraSetting extends Component {
   constructor(props) {
@@ -76,7 +72,7 @@ class CameraSetting extends Component {
         <Row>
           <h2 style={{ margin: 0 }}>カメラ設定</h2>
         </Row>
-        <Row gutter={[8, 8]} style={{ padding: "16px 0" }}>
+        {/* <Row gutter={[8, 8]} style={{ padding: "16px 0" }}>
           <Breadcrumb style={{ paddingLeft: "6px", color: "#0000FF" }}>
             <Breadcrumb.Item>
               <Link to="/home">ホームページ</Link>
@@ -85,8 +81,8 @@ class CameraSetting extends Component {
               <Text strong>カメラ設定</Text>
             </Breadcrumb.Item>
           </Breadcrumb>
-        </Row>
-        <Card style={{ width: "100%", marginTop: "36px" }}>
+        </Row> */}
+        <Card style={{ width: "100%", marginTop: "24px" }}>
           <Row align="end" style={{ paddingBottom: "32px" }}>
             <Button type="primary" onClick={() => this.showModal("事業所追加")}>
               カメラ追加

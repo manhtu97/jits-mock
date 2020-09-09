@@ -177,7 +177,7 @@ class OfficeSetting extends Component {
           </Row>
         </Modal>
         <Row>
-          <h2 style={{ margin: 0 }}>システム警報履歴</h2>
+          <h2 style={{ margin: 0 }}>事業所一覧設定</h2>
         </Row>
         <Row gutter={[8, 8]} style={{ padding: "16px 0" }}>
           <Breadcrumb style={{ paddingLeft: "6px", color: "#0000FF" }}>

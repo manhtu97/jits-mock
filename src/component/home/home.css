@@ -1,12 +1,12 @@
 .home {
   padding: 36px;
   min-height: 100%;
-  background-color: aliceblue;
+  background-color: #FAFAFA;
 }
 .homeMobile {
   padding: 12px;
   min-height: 100%;
-  background-color: aliceblue;
+  background-color: #FAFAFA;
 }
 .ant-card-meta-avatar > img {
   height: 50px;

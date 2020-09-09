@@ -1,19 +1,8 @@
 import React, { Component } from "react";
 import "./AdminSetting.css";
-import {
-  Row,
-  Col,
-  Card,
-  Breadcrumb,
-  Typography,
-  Input,
-  Tag,
-  Button,
-} from "antd";
-import { Link } from "react-router-dom";
+import { Row, Col, Card, Input, Tag, Button } from "antd";
 import { TweenOneGroup } from "rc-tween-one";
 import { isBrowser } from "react-device-detect";
-const { Text } = Typography;
 class AdminSetting extends Component {
   constructor(props) {
     super(props);
@@ -67,33 +56,27 @@ class AdminSetting extends Component {
     let tagChild = tags.map(this.forMap);
     return (
       <div className={isBrowser ? "home" : "homeMobile"}>
-        <Row>
+        <Row style={{ paddingBottom: "24px" }}>
           <h2 style={{ margin: 0 }}>システム設定</h2>
         </Row>
-        <Row gutter={[8, 8]} style={{ padding: "16px 0" }}>
-          <Breadcrumb style={{ paddingLeft: "6px", color: "#0000FF" }}>
-            <Breadcrumb.Item>
-              <Link to="/home">ホームページ</Link>
-            </Breadcrumb.Item>
-            <Breadcrumb.Item>
-              <Text strong>システム設定</Text>
-            </Breadcrumb.Item>
-          </Breadcrumb>
-        </Row>
         <Card style={{ textAlign: "start" }}>
-          <Row gutter={[8, 8]} align="middle">
+          <Row gutter={[16, 16]} align="middle">
             <Col lg={{ span: 12 }} xs={{ span: 24 }}>
-              <Row gutter={[8, 8]} align="middle" justify="start">
-                <Col lg={{ span: 12 }} xs={{ span: 24 }}>失敗時のリトライ回数</Col>
-                <Col lg={{ span: 12 }} xs={{ span: 24 }}>
+              <Row gutter={[8, 8]} align="middle">
+                <Col lg={{ span: 8 }} xs={{ span: 24 }}>
+                  失敗時のリトライ回数
+                </Col>
+                <Col lg={{ span: 16 }} xs={{ span: 24 }}>
                   <Input placeholder="数値を入力してください" />
                 </Col>
               </Row>
             </Col>
             <Col lg={{ span: 12 }} xs={{ span: 24 }}>
-              <Row gutter={[8, 8]} align="middle" justify="start">
-                <Col lg={{ span: 12 }} xs={{ span: 24 }}>n分ごとにクレンジングデータを取得する</Col>
-                <Col lg={{ span: 12 }} xs={{ span: 24 }}>
+              <Row gutter={[8, 8]} align="middle">
+                <Col lg={{ span: 8 }} xs={{ span: 24 }}>
+                  n分ごとにクレンジングデータを取得する
+                </Col>
+                <Col lg={{ span: 16 }} xs={{ span: 24 }}>
                   <Input placeholder="数値を入力してください" />
                 </Col>
               </Row>

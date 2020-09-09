@@ -4,18 +4,16 @@ import {
   Row,
   Col,
   Card,
-  Breadcrumb,
-  Typography,
   DatePicker,
   Button,
   Input,
+  Select,
 } from "antd";
-import { Link } from "react-router-dom";
 import Chart from "@src/component/Util/HighChart";
 import Highcharts from "highcharts";
 import moment from "moment";
 import { BrowserView, MobileView, isBrowser } from "react-device-detect";
-const { Text } = Typography;
+const {Option} = Select;
 class DetectError extends Component {
   constructor(props) {
     super(props);
@@ -115,10 +113,23 @@ class DetectError extends Component {
     };
     return (
       <div className={isBrowser ? "home" : "homeMobile"}>
-        <Row>
-          <h2 style={{ margin: 0 }}>田布施</h2>
+        <Row style={{ paddingBottom: "24px" }}>
+          <Col flex="auto">
+            <Row justify="start">
+              <h2 style={{ margin: 0 }}>精度誤差検知</h2>
+            </Row>
+          </Col>
+          <Col flex="200px">
+            <Row justify="end">
+              <Select defaultValue="田布施" style={{ width: 120 }}>
+                <Option value="田布施">田布施</Option>
+                <Option value="東埼玉">東埼玉</Option>
+                <Option value="東京">東京</Option>
+              </Select>
+            </Row>
+          </Col>
         </Row>
-        <Row gutter={[8, 8]} style={{ padding: "16px 0" }}>
+        {/* <Row gutter={[8, 8]} style={{ padding: "16px 0" }}>
           <Breadcrumb style={{ paddingLeft: "6px", color: "#0000FF" }}>
             <Breadcrumb.Item>
               <Link to="/home">ホームページ</Link>
@@ -133,7 +144,7 @@ class DetectError extends Component {
               <Text strong>精度誤差検知</Text>
             </Breadcrumb.Item>
           </Breadcrumb>
-        </Row>
+        </Row> */}
         <Card style={{ width: "100%" }}>
           <Row align="middle" justify="center" gutter={[32, 16]}>
             <Col lg={{ span: 10 }} xs={{ span: 24 }}>

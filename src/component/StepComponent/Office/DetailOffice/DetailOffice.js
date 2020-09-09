@@ -110,7 +110,7 @@ class DetailOffice extends Component {
               </Link>
             </Col>
             <Col xs={{ span: 12 }} lg={{ span: 6 }}>
-              <Link to="/office-setting">
+              <Link to="/office/1/office-detail-setting">
                 <Card hoverable>
                   <Meta
                     avatar={<img src={IconOffice} alt="事業所設定" />}
@@ -185,7 +185,7 @@ class DetailOffice extends Component {
               </Link>
             </Col>
             <Col xs={{ span: 12 }} lg={{ span: 6 }}>
-              <Link to="/office-setting">
+              <Link to="/office/1/office-detail-setting">
                 <Card hoverable>
                   <Meta
                     title="事業所設定"

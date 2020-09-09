@@ -3,8 +3,6 @@ import {
   Row,
   Col,
   Card,
-  Breadcrumb,
-  Typography,
   Button,
   Input,
   Table,
@@ -14,7 +12,6 @@ import {
 import { Link } from "react-router-dom";
 import { EditOutlined } from "@ant-design/icons";
 import { isBrowser } from "react-device-detect";
-const { Text } = Typography;
 
 class PermissionSetting extends Component {
   constructor(props) {
@@ -152,10 +149,10 @@ class PermissionSetting extends Component {
             </Col>
           </Row>
         </Modal>
-        <Row>
+        <Row style={{paddingBottom: '24px'}}>
           <h2 style={{ margin: 0 }}>権限設定</h2>
         </Row>
-        <Row gutter={[8, 8]} style={{ padding: "16px 0" }}>
+        {/* <Row gutter={[8, 8]} style={{ padding: "16px 0" }}>
           <Breadcrumb style={{ paddingLeft: "6px", color: "#0000FF" }}>
             <Breadcrumb.Item>
               <Link to="/home">ホームページ</Link>
@@ -164,7 +161,7 @@ class PermissionSetting extends Component {
               <Text strong>権限設定</Text>
             </Breadcrumb.Item>
           </Breadcrumb>
-        </Row>
+        </Row> */}
         <Card style={{ width: "100%" }}>
           <Row align="middle" justify="center" gutter={[12, 12]}>
             <Col lg={{ span: 9 }} xs={{ span: 24 }}>

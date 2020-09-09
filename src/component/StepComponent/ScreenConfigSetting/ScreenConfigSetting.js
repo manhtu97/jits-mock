@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Row, Col, Card, Typography, Select, Breadcrumb, Button } from "antd";
-import { Link } from "react-router-dom";
+import { Row, Col, Card, Typography, Select, Button } from "antd";
 import { isBrowser } from "react-device-detect";
 const { Meta } = Card;
 const { Option } = Select;
@@ -13,10 +12,10 @@ class ScreenConfigSetting extends Component {
   render() {
     return (
       <div className={isBrowser ? "home" : "homeMobile"}>
-        <Row>
+        <Row  style={{paddingBottom: '24px'}}>
           <h2 style={{ margin: 0 }}>画面構成設定</h2>
         </Row>
-        <Row gutter={[8, 8]} style={{ padding: "16px 0" }}>
+        {/* <Row gutter={[8, 8]} style={{ padding: "16px 0" }}>
           <Breadcrumb style={{ paddingLeft: "6px", color: "#0000FF" }}>
             <Breadcrumb.Item>
               <Link to="/home">ホームページ</Link>
@@ -25,7 +24,7 @@ class ScreenConfigSetting extends Component {
               <Text strong>画面構成設定</Text>
             </Breadcrumb.Item>
           </Breadcrumb>
-        </Row>
+        </Row> */}
         <Card style={{ width: "100%" }}>
           <Row style={{ paddingBottom: "12px" }}>
             <Text strong>ダッシュボード</Text>

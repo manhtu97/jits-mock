@@ -4,5 +4,6 @@
         ".vscode{,/**}"
     ],
     "appService.deploySubpath": ".",
-    "appService.defaultWebAppToDeploy": "None"
+    "appService.defaultWebAppToDeploy": "None",
+    "compile-hero.disable-compile-files-on-did-save-code": true
 }

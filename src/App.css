@@ -9,3 +9,46 @@
 .ant-card {
   height: 100%;
 }
+.ant-layout-sider {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.logo {
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px;
+}
+.trigger {
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.trigger:hover {
+  color: #1890ff;
+}
+.site-layout .site-layout-background {
+  background: #fff;
+}
+.ant-layout-header {
+  height: 50px !important;
+  line-height: 44px !important;
+  border-bottom: 1px solid #e4dfdf;
+  padding: 3px 0 !important;
+}
+.nameUser {
+  padding-right: 10px;
+  border-left: 1px solid #e4dfdf;
+}
+.ant-popover-inner-content {
+  padding: 0px !important;
+}
+.buttonClick {
+  padding: 6px 8px;
+}
+.buttonClick:hover {
+  background-color: #dbdbde;
+  cursor: pointer;
+}

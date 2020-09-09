@@ -4,7 +4,6 @@ import {
   Row,
   Col,
   Card,
-  Breadcrumb,
   Typography,
   DatePicker,
   Button,
@@ -13,11 +12,10 @@ import {
   Tag,
   Modal,
 } from "antd";
-import { Link } from "react-router-dom";
 import moment from "moment";
 import { isBrowser } from "react-device-detect";
 const { Text } = Typography;
-
+const { Option } = Select;
 class ReportHistory extends Component {
   constructor(props) {
     super(props);
@@ -216,10 +214,23 @@ class ReportHistory extends Component {
             </Col>
           </Row>
         </Modal>
-        <Row>
-          <h2 style={{ margin: 0 }}>警報履歴</h2>
+        <Row style={{ paddingBottom: "24px" }}>
+          <Col flex="auto">
+            <Row justify="start">
+              <h2 style={{ margin: 0 }}>警報履歴</h2>
+            </Row>
+          </Col>
+          <Col flex="200px">
+            <Row justify="end">
+              <Select defaultValue="田布施" style={{ width: 120 }}>
+                <Option value="田布施">田布施</Option>
+                <Option value="東埼玉">東埼玉</Option>
+                <Option value="東京">東京</Option>
+              </Select>
+            </Row>
+          </Col>
         </Row>
-        <Row gutter={[8, 8]} style={{ padding: "16px 0" }}>
+        {/* <Row gutter={[8, 8]} style={{ padding: "16px 0" }}>
           <Breadcrumb style={{ paddingLeft: "6px", color: "#0000FF" }}>
             <Breadcrumb.Item>
               <Link to="/home">ホームページ</Link>
@@ -234,7 +245,7 @@ class ReportHistory extends Component {
               <Text strong>警報履歴</Text>
             </Breadcrumb.Item>
           </Breadcrumb>
-        </Row>
+        </Row> */}
         <Card style={{ width: "100%" }}>
           <Row align="middle" justify="center" gutter={[16, 16]}>
             <Col lg={{ span: 7 }} xs={{ span: 24 }}>
