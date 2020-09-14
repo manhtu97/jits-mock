@@ -24,7 +24,7 @@ class Dashboard extends Component {
     this.state = {
       chartOption: {
         chart: {
-          width: 800,
+          width: 700,
         },
         title: {
           text: "流入水量",

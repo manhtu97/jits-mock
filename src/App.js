@@ -41,14 +41,14 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 function App(props) {
-  const [collapsed] = useState(false);
+  const [collapsed,setCollapsed] = useState(false);
   const history = useHistory();
 
   useEffect(() => {
     history.push("/detail-office/dashboard/1");
   });
   const toggle = () => {
-    this.setState({ collapsed: !this.state.collapsed });
+    setCollapsed(collapsed => !collapsed );
   };
   let eventClickSubMenu = (openKeys) => {
     // this.setState({arrayKey: openKeys});
