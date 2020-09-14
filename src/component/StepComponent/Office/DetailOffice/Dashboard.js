@@ -23,6 +23,9 @@ class Dashboard extends Component {
     super(props);
     this.state = {
       chartOption: {
+        chart: {
+          width: 800,
+        },
         title: {
           text: "流入水量",
         },
@@ -32,15 +35,113 @@ class Dashboard extends Component {
             plotLines: [
               {
                 value: 3,
-                dashStyle: "dash",
+                dashStyle: "solid",
                 width: 1,
-                color: "#d33",
+                color: "black",
+                label: {
+                  text: "流入水量"
+                }
               },
             ],
           },
         ],
         yAxis: [
           {
+            gridLineDashStyle: "longdash",
+            plotLines: [
+              {
+                color: "black",
+                dashStyle: "solid",
+                width: 3,
+                value: 4800,
+                zIndex: 5
+              },
+              {
+                color: "red",
+                dashStyle: "solid",
+                width: 1,
+                value: 7000,
+                label: {
+                  text: "重警報-7000",
+                  align: "left",
+                  x: -10,
+                  style: {
+                    color: "red",
+                  },
+                },
+              },
+              {
+                color: "red",
+                dashStyle: "dash",
+                width: 1,
+                value: 6000,
+                zIndex: 5,
+                label: {
+                  text: "高警報-6000",
+                  align: "left",
+                  x: -10,
+                  style: {
+                    color: "red",
+                  },
+                },
+              },
+              {
+                color: "#bbad06",
+                dashStyle: "dash",
+                width: 1,
+                value: 5000,
+                label: {
+                  text: "中警報-5000",
+                  align: "left",
+                  x: -10,
+                  style: {
+                    color: "#bbad06",
+                  },
+                },
+              },
+              {
+                color: "#bbad06",
+                dashStyle: "dash",
+                width: 1,
+                value: 4000,
+                label: {
+                  text: "軽警報-4000",
+                  align: "left",
+                  x: -10,
+                  style: {
+                    color: "#bbad06",
+                  },
+                },
+              },
+              {
+                color: "#7979d8",
+                dashStyle: "dash",
+                width: 1,
+                value: 3000,
+                label: {
+                  text: "3000",
+                  align: "left",
+                  x: -10,
+                  style: {
+                    color: "#7979d8",
+                  },
+                },
+              },
+              {
+                color: "blue",
+                dashStyle: "dash",
+                width: 1,
+                value: 1500,
+                label: {
+                  text: "1500",
+                  align: "left",
+                  x: -10,
+                  style: {
+                    color: "blue",
+                  },
+                },
+              },
+            ],
             labels: {
               style: {
                 color: Highcharts.getOptions().colors[1],
@@ -54,6 +155,7 @@ class Dashboard extends Component {
             },
           },
           {
+            gridLineDashStyle: "longdash",
             title: {
               text: "降雨量",
               style: {
@@ -97,7 +199,7 @@ class Dashboard extends Component {
           {
             name: "流入水量",
             type: "spline",
-            data: [900, 3200, 5000, 2375, 3000, 100, 6000],
+            data: [900, 3200, 4800, 2375, 3000, 100, 6000],
             zoneAxis: "x",
             zones: [
               { value: 0, color: "blue" },
@@ -108,9 +210,6 @@ class Dashboard extends Component {
       },
       visible: false,
     };
-  }
-  componentDidMount() {
-    console.log(this.props);
   }
   showModal = () => {
     this.setState({
@@ -184,25 +283,12 @@ class Dashboard extends Component {
             </Row>
           </Col>
         </Row>
-        {/* <Row gutter={[8, 8]} style={{ padding: "16px 0" }}>
-          <Breadcrumb style={{ paddingLeft: "6px", color: "#0000FF" }}>
-            <Breadcrumb.Item>
-              <Link to="/home">ホームページ</Link>
-            </Breadcrumb.Item>
-            <Breadcrumb.Item>
-              <Link to="/office">事業所</Link>
-            </Breadcrumb.Item>
-            <Breadcrumb.Item>
-              <Text strong>ダッシュボード</Text>
-            </Breadcrumb.Item>
-          </Breadcrumb>
-        </Row> */}
-        <Card style={{ width: "100%", margin: "8px 0" }}>
+        <Card style={{ width: "100%", marginBottom: "24px" }}>
           <Row
             align="middle"
             justify="center"
             gutter={[8, 8]}
-            style={{ margin: 0 }}
+            className="rowNotMargin"
           >
             <Col lg={{ span: 7 }} xs={{ span: 24 }}>
               <Row align="middle" justify="center" gutter={[8, 8]}>
@@ -249,10 +335,7 @@ class Dashboard extends Component {
             </Col>
           </Row>
         </Card>
-        <Card
-          style={{ width: "100%", margin: "16px 0" }}
-          bodyStyle={{ padding: "6px" }}
-        >
+        <Card style={{ width: "100%" }} bodyStyle={{ padding: "6px" }}>
           <Card
             title="処理場A"
             bodyStyle={{ padding: 0 }}

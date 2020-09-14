@@ -1,5 +1,4 @@
 import React from "react";
-import Home from "@src/component/home/home";
 import Office from "@src/component/StepComponent/Office/Office";
 import OfficeSetting from "@src/component/StepComponent/OfficeSetting/OfficeSetting";
 import AdminSetting from "@src/component/StepComponent/AdminSetting/AdminSetting";
@@ -14,8 +13,8 @@ import Dashboard from "@src/component/StepComponent/Office/DetailOffice/Dashboar
 import { Switch, Route, Redirect } from "react-router-dom";
 import DetectError from "@src/component/StepComponent/Office/DetailOffice/DetectError";
 import Abnormal from "@src/component/StepComponent/Office/DetailOffice/Abnormal";
-import WarningHistory from "@src/component/StepComponent/Office/DetailOffice/WarningSysHistory";
-import ReportHistoryOffice from "@src/component/StepComponent/Office/DetailOffice/ReportHistory";
+import WarningHistory from "@src/component/StepComponent/Office/DetailOffice/ReportHistory";
+import ReportHistoryOffice from "@src/component/StepComponent/Office/DetailOffice/WarningSysHistory";
 import EditPermission from "@src/component/StepComponent/PermissionSetting/EditPermisstion";
 import WarningSetting from "@src/component/StepComponent/Office/DetailOffice/WarningSetting";
 import DetailOfficeSetting from "@src/component/StepComponent/Office/DetailOffice/DetailOfficeSetting";
@@ -25,7 +24,6 @@ function RouterRoot() {
       <Route exact path="/">
         <Redirect to="/detail-office/dashboard/1" />
       </Route>
-      <Route exact path="/home" component={Home} />
       <Route exact path="/office" component={Office} />
       <Route exact path="/detail-office" children={<DetailOffice />} />
       <Route exact path="/detail-office/dashboard/1" children={<Dashboard />} />
@@ -62,7 +60,7 @@ function RouterRoot() {
         component={ScreenConfigSetting}
       />
       <Route exact path="/user" component={User} />
-      <Route path="*">
+      <Route path="**">
         <Redirect to="/404" />
       </Route>
     </Switch>

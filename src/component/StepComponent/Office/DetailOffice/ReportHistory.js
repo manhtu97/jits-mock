@@ -247,7 +247,7 @@ class ReportHistory extends Component {
           </Breadcrumb>
         </Row> */}
         <Card style={{ width: "100%" }}>
-          <Row align="middle" justify="center" gutter={[16, 16]}>
+          <Row className="rowNotMargin" align="middle" justify="center" gutter={[16, 16]}>
             <Col lg={{ span: 7 }} xs={{ span: 24 }}>
               <Row align="middle" justify="center">
                 <Col span={6}>開始時間</Col>

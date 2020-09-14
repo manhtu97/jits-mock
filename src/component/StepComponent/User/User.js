@@ -183,7 +183,7 @@ class User extends Component {
                 onBlur={this.handleInputConfirm}
                 onPressEnter={this.handleInputConfirm}
               />
-              <div style={{ padding: "12px", border: "1px solid grey" }}>
+              <div style={{ padding: "12px", border: "1px solid #e0dddd" }}>
                 <TweenOneGroup
                   enter={{
                     scale: 0.8,
@@ -217,19 +217,19 @@ class User extends Component {
           </Breadcrumb>
         </Row> */}
         <Card style={{ width: "100%" }}>
-          <Row align="middle" justify="center" gutter={[32, 16]} style={{margin: 0}}>
+          <Row align="middle" justify="center" gutter={[32, 16]} className="rowNotMargin">
             <Col lg={{ span: 7 }} xs={{ span: 24 }}>
               <Row align="middle" justify="center" gutter={[6, 6]}>
-                <Col span={6}>ユーザー名</Col>
-                <Col span={18}>
+                <Col span={8}>ユーザー名</Col>
+                <Col span={16}>
                   <Input></Input>
                 </Col>
               </Row>
             </Col>
             <Col lg={{ span: 7 }} xs={{ span: 24 }}>
               <Row align="middle" justify="center" gutter={[6, 6]}>
-                <Col span={6}>フルネーム</Col>
-                <Col span={18}>
+                <Col span={8}>フルネーム</Col>
+                <Col span={16}>
                   <Input></Input>
                 </Col>
               </Row>

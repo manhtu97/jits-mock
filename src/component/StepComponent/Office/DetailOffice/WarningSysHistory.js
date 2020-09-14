@@ -143,7 +143,7 @@ class Abnormal extends Component {
         <Card style={{ width: "100%" }}>
           <Row align="middle" justify="center">
             <Col span={15} lg={{ span: 15 }} xs={{ span: 24 }}>
-              <Row gutter={[16, 16]}>
+              <Row className="rowNotMargin" gutter={[16, 16]}>
                 <Col lg={{ span: 12 }} xs={{ span: 24 }}>
                   <Row align="middle" justify="center">
                     <Col span={6}>開始時間</Col>
@@ -201,7 +201,7 @@ class Abnormal extends Component {
           </Row>
         </Card>
         <Card style={{ width: "100%", marginTop: "36px" }}>
-          <Row align="middle" justify="center">
+          <Row className="rowNotMargin" align="middle" justify="center">
             <Table
               style={{ width: "100%" }}
               bordered

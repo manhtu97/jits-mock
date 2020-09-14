@@ -4,4 +4,6 @@
 .responsive {
   padding: 5px;
 }
- 
+.table-row-error {
+  background-color: #ff000026;
+}

@@ -179,7 +179,7 @@ class OfficeSetting extends Component {
         <Row>
           <h2 style={{ margin: 0 }}>事業所一覧設定</h2>
         </Row>
-        <Row gutter={[8, 8]} style={{ padding: "16px 0" }}>
+        <Row gutter={[8, 8]}>
           <Breadcrumb style={{ paddingLeft: "6px", color: "#0000FF" }}>
             <Breadcrumb.Item>
               <Link to="/home">ホームページ</Link>

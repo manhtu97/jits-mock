@@ -1,19 +1,11 @@
 import React, { Component } from "react";
 import "./DetailOffice.css";
-import {
-  Row,
-  Col,
-  Card,
-  DatePicker,
-  Button,
-  Input,
-  Select,
-} from "antd";
+import { Row, Col, Card, DatePicker, Button, Input, Select } from "antd";
 import Chart from "@src/component/Util/HighChart";
 import Highcharts from "highcharts";
 import moment from "moment";
 import { BrowserView, MobileView, isBrowser } from "react-device-detect";
-const {Option} = Select;
+const { Option } = Select;
 class DetectError extends Component {
   constructor(props) {
     super(props);
@@ -22,7 +14,7 @@ class DetectError extends Component {
   render() {
     let chartOption = {
       chart: {
-        type: "spline",
+        type: "spline"
       },
       credits: {
         enabled: false,
@@ -64,16 +56,16 @@ class DetectError extends Component {
         {
           name: "実績流入量",
           data: [
-            43934,
-            52503,
-            57177,
-            69658,
-            57031,
-            45931,
-            37133,
-            54175,
-            34000,
-            23123,
+            23916,
+            23064,
+            28742,
+            28851,
+            31490,
+            29282,
+            37121,
+            39434,
+            43000,
+            32123,
           ],
           color: "#FF0000",
         },
@@ -94,22 +86,22 @@ class DetectError extends Component {
           color: "#1E04BC",
         },
       ],
-      responsive: {
-        rules: [
-          {
-            condition: {
-              maxWidth: 500,
-            },
-            chartOptions: {
-              legend: {
-                align: "center",
-                verticalAlign: "bottom",
-                layout: "horizontal",
-              },
-            },
-          },
-        ],
-      },
+      // responsive: {
+      //   rules: [
+      //     {
+      //       condition: {
+      //         maxWidth: 500,
+      //       },
+      //       chartOptions: {
+      //         legend: {
+      //           align: "center",
+      //           verticalAlign: "bottom",
+      //           layout: "horizontal",
+      //         },
+      //       },
+      //     },
+      //   ],
+      // },
     };
     return (
       <div className={isBrowser ? "home" : "homeMobile"}>
@@ -146,7 +138,7 @@ class DetectError extends Component {
           </Breadcrumb>
         </Row> */}
         <Card style={{ width: "100%" }}>
-          <Row align="middle" justify="center" gutter={[32, 16]}>
+          <Row className="rowNotMargin" align="middle" justify="center" gutter={[32, 16]}>
             <Col lg={{ span: 10 }} xs={{ span: 24 }}>
               <Row align="middle" justify="center">
                 <Col span={6}>開始時間</Col>
@@ -185,7 +177,7 @@ class DetectError extends Component {
           </Row>
         </Card>
         <Card style={{ width: "100%", marginTop: "36px" }}>
-          <Row align="middle" justify="center" gutter={[32, 16]}>
+          <Row className="rowNotMargin" align="middle" justify="center" gutter={[32, 16]}>
             <Col lg={{ span: 10 }} xs={{ span: 24 }}>
               <Row align="middle" justify="center">
                 <Col span={6}>精度(%)</Col>
@@ -204,8 +196,8 @@ class DetectError extends Component {
         </Card>
         <BrowserView>
           <Card style={{ width: "100%", marginTop: "36px" }}>
-            <Row align="middle" justify="center">
-              <Col xs={{ span: 24 }} lg={{ span: 12 }}>
+            <Row className="rowNotMargin" align="middle" justify="center">
+              <Col>
                 <Chart highcharts={Highcharts} options={chartOption} />
               </Col>
             </Row>
@@ -215,8 +207,11 @@ class DetectError extends Component {
           </Card>
         </BrowserView>
         <MobileView>
-          <Card style={{ width: "100%", marginTop: "36px" }} bodyStyle={{padding: '6px'}}>
-            <Row align="middle" justify="center">
+          <Card
+            style={{ width: "100%", marginTop: "36px" }}
+            bodyStyle={{ padding: "6px" }}
+          >
+            <Row className="rowNotMargin" align="middle" justify="center">
               <Col xs={{ span: 24 }} lg={{ span: 12 }}>
                 <Chart highcharts={Highcharts} options={chartOption} />
               </Col>

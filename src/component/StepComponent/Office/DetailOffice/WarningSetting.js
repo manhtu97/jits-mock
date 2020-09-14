@@ -215,11 +215,11 @@ class WarningSetting extends Component {
           </Breadcrumb>
         </Row> */}
         <Card style={{ width: "100%" }}>
-          <Row style={{ padding: "16px" }} align="middle">
-            <Col span={2} lg={{ span: 2 }} xs={{ span: 4 }}>
-              単位
+          <Row style={{ padding: "16px" }} align="middle" justify="start">
+            <Col lg={{ span: 2 }} xs={{ span: 2 }}>
+              <Row justify="start">単位</Row>
             </Col>
-            <Col span={4} lg={{ span: 7 }} xs={{ span: 6 }}>
+            <Col lg={{ span: 4 }} xs={{ span: 4 }}>
               <Select style={{ width: "100%" }} defaultValue="mm"></Select>
             </Col>
           </Row>

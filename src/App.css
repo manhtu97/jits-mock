@@ -4,7 +4,7 @@
   overflow: auto;
 }
 .ant-card-meta-title {
-  white-space: normal!important;
+  white-space: normal !important;
 }
 .ant-card {
   height: 100%;
@@ -51,4 +51,16 @@
 .buttonClick:hover {
   background-color: #dbdbde;
   cursor: pointer;
+}
+.ant-layout-sider-trigger {
+  display: none;
+}
+.ant-layout-content {
+  padding: 24px;
+}
+.home {
+  padding-bottom: 24px;
+}
+.rowNotMargin {
+  margin: 0px !important;
 }

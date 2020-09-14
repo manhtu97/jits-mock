@@ -164,6 +164,7 @@ class Abnormal extends Component {
   };
   render() {
     let { dataSource } = this.state;
+    console.log(dataSource);
     let components = {
       body: {
         row: EditableRow,
@@ -221,11 +222,16 @@ class Abnormal extends Component {
           </Breadcrumb>
         </Row> */}
         <Card style={{ width: "100%" }}>
-          <Row align="middle" justify="center" gutter={[32, 16]}>
+          <Row
+            align="middle"
+            justify="center"
+            gutter={[32, 16]}
+            className="rowNotMargin"
+          >
             <Col lg={{ span: 7 }} xs={{ span: 24 }}>
               <Row align="middle" justify="center">
-                <Col span={6}>データソース</Col>
-                <Col span={18}>
+                <Col span={8}>データソース</Col>
+                <Col span={16}>
                   <Select
                     defaultValue="降雨量"
                     style={{ width: "100%" }}
@@ -265,7 +271,12 @@ class Abnormal extends Component {
           </Row>
         </Card>
         <Card style={{ width: "100%", marginTop: "36px" }} gutter={[32, 16]}>
-          <Row align="middle" justify="center" gutter={[32, 16]}>
+          <Row
+            className="rowNotMargin"
+            align="middle"
+            justify="center"
+            gutter={[32, 16]}
+          >
             <Col lg={{ span: 21 }} xs={{ span: 24 }}>
               <Row align="middle" justify="end">
                 <Col lg={{ span: 3 }} xs={{ span: 6 }}>
@@ -288,11 +299,11 @@ class Abnormal extends Component {
           </Row>
         </Card>
         <Card style={{ width: "100%", marginTop: "36px" }} gutter={[32, 16]}>
-          <Row align="middle" justify="center">
+          <Row className="rowNotMargin" align="middle" justify="center">
             <Table
               style={{ width: "100%" }}
               components={components}
-              rowClassName={() => "editable-row"}
+              rowClassName={(record) => "editable-row" && Number(record.value) === 0 ? 'table-row-error' : ''}
               bordered
               dataSource={dataSource}
               columns={columns}

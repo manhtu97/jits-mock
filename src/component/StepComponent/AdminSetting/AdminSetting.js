@@ -61,22 +61,22 @@ class AdminSetting extends Component {
         </Row>
         <Card style={{ textAlign: "start" }}>
           <Row gutter={[16, 16]} align="middle">
-            <Col lg={{ span: 12 }} xs={{ span: 24 }}>
+            <Col span={24}>
               <Row gutter={[8, 8]} align="middle">
                 <Col lg={{ span: 8 }} xs={{ span: 24 }}>
                   失敗時のリトライ回数
                 </Col>
-                <Col lg={{ span: 16 }} xs={{ span: 24 }}>
+                <Col lg={{ span: 6 }} xs={{ span: 24 }}>
                   <Input placeholder="数値を入力してください" />
                 </Col>
               </Row>
             </Col>
-            <Col lg={{ span: 12 }} xs={{ span: 24 }}>
+            <Col span={24}>
               <Row gutter={[8, 8]} align="middle">
                 <Col lg={{ span: 8 }} xs={{ span: 24 }}>
                   n分ごとにクレンジングデータを取得する
                 </Col>
-                <Col lg={{ span: 16 }} xs={{ span: 24 }}>
+                <Col lg={{ span: 6 }} xs={{ span: 24 }}>
                   <Input placeholder="数値を入力してください" />
                 </Col>
               </Row>
@@ -94,7 +94,7 @@ class AdminSetting extends Component {
                 onBlur={this.handleInputConfirm}
                 onPressEnter={this.handleInputConfirm}
               />
-              <div style={{ padding: "12px", border: "1px solid grey" }}>
+              <div style={{ padding: "12px", border: "1px solid #e0dddd" }}>
                 <TweenOneGroup
                   enter={{
                     scale: 0.8,
@@ -125,7 +125,7 @@ class AdminSetting extends Component {
                 onBlur={this.handleInputConfirm}
                 onPressEnter={this.handleInputConfirm}
               />
-              <div style={{ padding: "12px", border: "1px solid grey" }}>
+              <div style={{ padding: "12px", border: "1px solid #e0dddd" }}>
                 <TweenOneGroup
                   enter={{
                     scale: 0.8,
