@@ -24,10 +24,13 @@ class Dashboard extends Component {
     this.state = {
       chartOption: {
         chart: {
-          width: 700,
+          width: 600,
         },
         title: {
           text: "流入水量",
+        },
+        legend: {
+          enabled: false
         },
         xAxis: [
           {
