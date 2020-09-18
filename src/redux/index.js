@@ -1,2 +1,2 @@
 // import all action
-export { selectTab } from "./tabSideBar/tab.action";
+export { selectTab,collapsed } from "./tabSideBar/tab.action";
